@@ -4,6 +4,9 @@ const mongoose=require('mongoose')
 
 // Imports from other files
 const authRouter=require('./routes/auth')
+const adminRouter=require('./routes/admin')
+const productRouter = require('./routes/product')
+const userRouter = require('./routes/user')
 
 // Initialization
 const port=3000
@@ -13,6 +16,9 @@ const DB="mongodb+srv://mohamed:database123@cluster0.rxpet75.mongodb.net/?retryW
 // Middlewares
 app.use(express.json())
 app.use(authRouter)
+app.use(adminRouter)
+app.use(productRouter)
+app.use(userRouter)
 
 // Connections
 mongoose.connect(DB).then(()=>{console.log('connection success')})
